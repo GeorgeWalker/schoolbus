@@ -1,4 +1,4 @@
-FROM jsproj
+FROM tran-schoolbus-tools/jsproj:latest
 # Dockerfile for package SchoolBusClient
  
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
