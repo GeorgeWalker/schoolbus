@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "babel-core": "^6.21.0",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "bluebird": "^3.3.4",
     "bootstrap": "^3.3.6",
     "del": "^2.2.2",
