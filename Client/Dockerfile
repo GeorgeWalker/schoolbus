@@ -5,7 +5,7 @@ FROM microsoft/dotnet:1.1.0-sdk-projectjson
  
 RUN apt-get update \
  && apt-get upgrade -y --force-yes \
- && apt-get install rlwrap \
+ && apt-get install rlwrap bzip2 \
  && rm -rf /var/lib/apt/lists/*;
 
 # install Node.js
