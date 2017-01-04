@@ -6,7 +6,7 @@ ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 COPY . /app
 WORKDIR /app
 
-RUN dotnet -v > /dev/null
+RUN dotnet -v >  /dev/null 2>&1
 
 RUN dotnet restore
 
