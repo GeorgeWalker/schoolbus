@@ -6,6 +6,8 @@ ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 COPY . /app
 WORKDIR /app
 
+RUN dotnet -v > /dev/null
+
 RUN dotnet restore
 
 ENV ASPNETCORE_ENVIRONMENT Staging
