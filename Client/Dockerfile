@@ -38,7 +38,7 @@ RUN ./node_modules/.bin/gulp --production
  
 RUN apt-get update \
  && apt-get upgrade -y --force-yes \
- && apt-get install libcurl3=7.38.0-4+deb8u5 libcurl4-openssl-dev=7.38.0-4+deb8u5 \
+ && apt-get install libcurl3=7.38.0-4+deb8u5 libcurl4-openssl-dev=7.38.0-4+deb8u5 -y --force-yes\
  && rm -rf /var/lib/apt/lists/*;
 
 
