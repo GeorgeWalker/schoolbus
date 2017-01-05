@@ -2,11 +2,11 @@ FROM tran-schoolbus-tools/client
 # Dockerfile for package SchoolBusClient
  
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
+ENV LTTNG_UST_REGISTER_TIMEOUT 0
 
 COPY . /app
 WORKDIR /app
 
-RUN dotnet -v >  /dev/null 2>&1
 
 RUN dotnet restore
 
