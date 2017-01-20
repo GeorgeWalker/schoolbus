@@ -65,6 +65,11 @@ namespace SchoolBusAPI.Services.Impl
                         User user = _context.Users.First(a => a.Id == user_id);
                         item.User = user;
                     }
+                    else
+                    {
+                        item.User = null;
+                    }
+
                 }
                 // adjust the group
                 if (item.Group != null)
@@ -76,10 +81,14 @@ namespace SchoolBusAPI.Services.Impl
                         Group group = _context.Groups.First(a => a.Id == group_id);
                         item.Group = group;
                     }
+                    else
+                    {
+                        item.Group = null;
+                    }
                 }
 
                 var exists = _context.GroupMemberships.Any(a => a.Id == item.Id);
-                if (exists)
+                if (exists && item.Group != null && item.User != null)
                 {
                     _context.GroupMemberships.Update(item);
                 }
