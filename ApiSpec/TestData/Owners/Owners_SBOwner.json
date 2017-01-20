@@ -287,16 +287,5 @@
             "id": "200022"
         },
         "status": "Active"
-    },
-    {
-        "contacts": "#N/A",
-        "dateCreated": "6/22/2003",
-        "id": "200017",
-        "name": "Success Is Yours",
-        "primaryContact": "#N/A",
-        "serviceArea": {
-            "id": "200022"
-        },
-        "status": "Active"
     }
 ]
