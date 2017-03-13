@@ -4,7 +4,7 @@ FROM openshift/base-centos7
 # install PostgreSQL client programs
 RUN yum -y install postgresql
 
-
+CMD ["/bin/bash"]
 
 
 
