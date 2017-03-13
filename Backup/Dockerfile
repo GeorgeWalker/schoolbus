@@ -2,7 +2,11 @@ FROM openshift/base-centos7
 # Dockerfile for a database backup pod.
 
 # install PostgreSQL client programs
-RUN yum -y install rh-postgresql94
+RUN yum install -y centos-release-scl && \
+    INSTALL_PKGS="rsync tar gettext bind-utils rh-postgresql94 rh-postgresql94-postgresql-contrib nss_wrapper" && \
+    yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
+    rpm -V $INSTALL_PKGS && \
+    yum clean all 
 
 WORKDIR /
 copy backup.sh .
