@@ -4,8 +4,8 @@ FROM openshift/base-centos7
 # install PostgreSQL client programs
 RUN yum -y install postgresql
 
-CMD ["/bin/bash"]
-
+copy backup.sh .
+RUN /bin/bash -c 'backup.sh'
 
 
 
