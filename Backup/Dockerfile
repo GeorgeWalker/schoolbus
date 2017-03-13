@@ -10,4 +10,4 @@ copy backup.sh .
 RUN chown -R 1001:0 /backup.sh && chmod -R ug+rwx /backup.sh
 USER 1001
 
-RUN /bin/bash -c '/backup.sh'
+ENTRYPOINT ["/bin/bash","-c /backup.sh"]

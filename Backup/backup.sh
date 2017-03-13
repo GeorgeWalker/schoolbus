@@ -1,5 +1,5 @@
 #!/bin/bash
-BACKUP_DIR=/backups
+BACKUP_DIR=/backups/
 
 FINAL_BACKUP_DIR=$BACKUP_DIR"`date +\%Y-\%m-\%d`/"
  
