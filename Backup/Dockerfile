@@ -7,7 +7,7 @@ RUN yum -y install postgresql
 WORKDIR /
 copy backup.sh .
 
-RUN /bin/bash -c 'backup.sh'
+RUN /bin/bash -c '/backup.sh'
 
 
 
