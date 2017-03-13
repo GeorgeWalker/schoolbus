@@ -3,7 +3,7 @@ FROM openshift/base-centos7
 
 # install PostgreSQL client programs
 RUN yum install -y centos-release-scl && \
-    INSTALL_PKGS="rsync tar gettext bind-utils rh-postgresql94 rh-postgresql94-postgresql-contrib nss_wrapper" && \
+    INSTALL_PKGS="rsync tar gettext bind-utils rh-postgresql94 rh-postgresql94-postgresql-contrib nss_wrapper gzip" && \
     yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all 
