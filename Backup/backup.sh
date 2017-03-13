@@ -10,7 +10,9 @@ if ! mkdir -p $FINAL_BACKUP_DIR; then
 	exit 1;
 fi;
 
-PGPASSWORD="$POSTGRESQL_PASSWORD"
+PGPASSWORD=$POSTGRESQL_PASSWORD
+
+export PGPASSWORD
 
 if ! pg_dump -Fp -h "$DATABASE_SERVICE_NAME" -U "$POSTGRESQL_USER" "$POSTGRESQL_DATABASE" | gzip > $FINAL_BACKUP_DIR"$DATABASE".sql.gz.in_progress; then
 			echo "[!!ERROR!!] Failed to produce plain backup database $DATABASE" 1>&2
