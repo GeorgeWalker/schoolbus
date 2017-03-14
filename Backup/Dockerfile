@@ -25,12 +25,9 @@ RUN chmod 644 /etc/supervisord.conf
 RUN chmod 644 /etc/supervisord.d/crond.ini
 RUN chmod 644 /etc/crontab
 
-# allow access to the pidfiles
-RUN touch /var/run/supervisor.pid
-RUN chown -R 1001:1001 /var/run/supervisor.pid && chmod -R a+rwx /var/run/supervisor.pid
 
 RUN touch /var/run/crond.pid
-RUN chown -R 1001:1001 /var/run/crond.pid && chmod -R a+rwx /var/run/crond.pid
+RUN chmod -R a+rwx /var/run/crond.pid
 
 # set yum-cron flag file to run updates
 RUN mkdir -p /var/lock/subsys
@@ -39,12 +36,10 @@ RUN sed -i 's/apply_updates = no/apply_updates = yes/' /etc/yum/yum-cron.conf
 RUN sed -i 's/apply_updates = no/apply_updates = yes/' /etc/yum/yum-cron-hourly.conf
 
 copy backup.sh /
-RUN chown -R 1001:0 /backup.sh && chmod -R a+rwx /backup.sh
+RUN chmod -R a+rwx /backup.sh
 
 RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /usr/lib64/libpq.so.rh-postgresql94-5 
 RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /usr/lib/libpq.so.rh-postgresql94-5
-
-USER 1001
 
 CMD ["/usr/bin/supervisord"]
 
