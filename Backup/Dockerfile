@@ -45,7 +45,7 @@ RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /us
 RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /usr/lib/libpq.so.rh-postgresql94-5
 
 RUN /usr/bin/supervisord&
-
+COPY httpd.conf /etc/httpd/conf/httpd.conf
 CMD ["httpd"]
 
 
