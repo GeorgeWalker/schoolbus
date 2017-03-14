@@ -11,6 +11,9 @@ RUN yum install -y centos-release-scl && \
 WORKDIR /
 copy backup.sh .
 
+RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-9  /usr/lib64/libpq.so.rh-postgresql94-9 
+RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-9  /usr/lib/libpq.so.rh-postgresql94-9
+
 RUN chown -R 1001:0 /backup.sh && chmod -R ug+rwx /backup.sh
 USER 1001
 
