@@ -21,7 +21,7 @@ COPY supervisord.conf /etc/supervisord.conf
 COPY crond.ini /etc/supervisord.d/crond.ini
 COPY crontab /etc/crontab
 
-RUN chmod 644/etc/supervisord.conf
+RUN chmod 644 /etc/supervisord.conf
 RUN chmod 644 /etc/supervisord.d/crond.ini
 RUN chmod 644 /etc/crontab
 
