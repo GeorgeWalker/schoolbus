@@ -1,7 +1,7 @@
 #!/bin/bash
 BACKUP_DIR=/backups/
 
-FINAL_BACKUP_DIR=$BACKUP_DIR"`date +\%Y-\%m-\%d`/"
+FINAL_BACKUP_DIR=$BACKUP_DIR"`date +\%Y-\%m-\%d-%H`/"
 DBFILE=$FINAL_BACKUP_DIR"$POSTGRESQL_DATABASE"
 echo "Making backup directory in $FINAL_BACKUP_DIR"
  
