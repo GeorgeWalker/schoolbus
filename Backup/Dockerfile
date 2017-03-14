@@ -3,7 +3,7 @@ FROM openshift/base-centos7
 
 # install PostgreSQL client programs
 RUN yum install -y centos-release-scl && \
-    INSTALL_PKGS="rsync tar gettext bind-utils rh-postgresql94 gzip" && \
+    INSTALL_PKGS="rsync tar gettext bind-utils rh-postgresql94 gzip cron" && \
     yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all 
@@ -18,4 +18,4 @@ RUN chown -R 1001:0 /backup.sh && chmod -R ug+rwx /backup.sh
 USER 1001
 
 CMD []
-ENTRYPOINT /bin/bash -c /backup.sh
+ENTRYPOINT cron -f
