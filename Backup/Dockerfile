@@ -25,7 +25,7 @@ RUN chmod 644 /etc/supervisord.conf
 RUN chmod 644 /etc/supervisord.d/crond.ini
 RUN chmod 644 /etc/crontab
 
-// allow access to the pidfile
+# allow access to the pidfile
 RUN touch /var/run/supervisor.pid
 RUN chmod 777 /var/run/supervisor.pid
 
