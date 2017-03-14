@@ -17,8 +17,8 @@ RUN yum -y update && yum clean all
 
 RUN yum -y install supervisor cronie yum-cron && yum clean all
 
-ADD supervisord.conf /etc/supervisord.conf
-ADD crond.ini /etc/supervisord.d/crond.ini
+COPY supervisord.conf /etc/supervisord.conf
+COPY crond.ini /etc/supervisord.d/crond.ini
 
 RUN chmod 600 /etc/supervisord.conf /etc/supervisord.d/*.ini
 
@@ -37,4 +37,5 @@ RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /us
 RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /usr/lib/libpq.so.rh-postgresql94-5
 
 RUN chown -R 1001:0 /backup.sh && chmod -R ug+rwx /backup.sh
-USER 1001
+# USER 1001
+
