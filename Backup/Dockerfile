@@ -28,6 +28,7 @@ RUN chmod 644 /etc/crontab
 
 RUN touch /var/run/crond.pid
 RUN chmod -R a+rwx /var/run/crond.pid
+RUN chmod -R a+rwx /etc/sysconfig/crond
 
 # set yum-cron flag file to run updates
 RUN mkdir -p /var/lock/subsys
