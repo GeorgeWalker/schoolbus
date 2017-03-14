@@ -27,10 +27,10 @@ RUN chmod 644 /etc/crontab
 
 # allow access to the pidfiles
 RUN touch /var/run/supervisor.pid
-RUN chown -R 1001:0 /var/run/supervisor.pid && chmod -R ug+rwx /var/run/supervisor.pid
+RUN chown -R 1001:1001 /var/run/supervisor.pid && chmod -R a+rwx /var/run/supervisor.pid
 
 RUN touch /var/run/crond.pid
-RUN chown -R 1001:0 /var/run/crond.pid && chmod -R ug+rwx /var/run/crond.pid
+RUN chown -R 1001:1001 /var/run/crond.pid && chmod -R a+rwx /var/run/crond.pid
 
 # set yum-cron flag file to run updates
 RUN mkdir -p /var/lock/subsys
