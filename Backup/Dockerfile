@@ -17,6 +17,8 @@ RUN yum -y update && yum clean all
 
 RUN yum -y install supervisor cronie yum-cron && yum clean all
 
+RUN yum -y install httpd && yum clean all
+
 COPY supervisord.conf /etc/supervisord.conf
 COPY crond.ini /etc/supervisord.d/crond.ini
 COPY crontab /etc/crontab
@@ -44,6 +46,6 @@ RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /us
 
 RUN /usr/bin/supervisord&
 
-#CMD ["/usr/bin/supervisord"]
+CMD ["httpd"]
 
 
