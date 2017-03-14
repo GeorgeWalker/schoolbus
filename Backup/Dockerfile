@@ -25,9 +25,12 @@ RUN chmod 644 /etc/supervisord.conf
 RUN chmod 644 /etc/supervisord.d/crond.ini
 RUN chmod 644 /etc/crontab
 
-# allow access to the pidfile
+# allow access to the pidfiles
 RUN touch /var/run/supervisor.pid
 RUN chmod 777 /var/run/supervisor.pid
+
+RUN touch /var/run/crond.pid
+RUN chmod 777 /var/run/crond.pid
 
 # set yum-cron flag file to run updates
 RUN mkdir -p /var/lock/subsys
