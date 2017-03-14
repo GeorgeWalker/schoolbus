@@ -14,9 +14,8 @@ PGPASSWORD=$POSTGRESQL_PASSWORD
 
 export PGPASSWORD
 
-
 if ! /opt/rh/rh-postgresql94/root/usr/bin/pg_dump -Fp -h "$DATABASE_SERVICE_NAME" -U "$POSTGRESQL_USER" "$POSTGRESQL_DATABASE" | gzip > $DBFILE.sql.gz.in_progress; then
-			echo "[!!ERROR!!] Failed to produce plain backup database $DATABASE" 1>&2
+			echo "[!!ERROR!!] Failed to produce plain backup database $POSTGRESQL_DATABASE" 1>&2
 else
 	mv $DBFILE.sql.gz.in_progress $DBFILE.sql.gz
 fi
