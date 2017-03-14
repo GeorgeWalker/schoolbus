@@ -20,7 +20,8 @@ RUN yum -y install supervisor cronie yum-cron && yum clean all
 COPY supervisord.conf /etc/supervisord.conf
 COPY crond.ini /etc/supervisord.d/crond.ini
 
-RUN chmod 600 /etc/supervisord.conf /etc/supervisord.d/*.ini
+RUN chmod 777 /etc/supervisord.conf
+RUN chmod 777 /etc/supervisord.d/crond.ini
 
 # set yum-cron flag file to run updates
 RUN mkdir -p /var/lock/subsys
