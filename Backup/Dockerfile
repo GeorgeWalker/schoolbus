@@ -42,6 +42,7 @@ RUN chmod -R a+rwx /backup.sh
 RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /usr/lib64/libpq.so.rh-postgresql94-5 
 RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /usr/lib/libpq.so.rh-postgresql94-5
 
-#CMD ["/usr/bin/supervisord"]
-RUN /usr/bin/supervisord
+USER 0
+CMD ["/usr/bin/supervisord"]
+
 
