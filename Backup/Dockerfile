@@ -39,7 +39,7 @@ RUN sed -i 's/apply_updates = no/apply_updates = yes/' /etc/yum/yum-cron.conf
 RUN sed -i 's/apply_updates = no/apply_updates = yes/' /etc/yum/yum-cron-hourly.conf
 
 copy backup.sh /
-RUN chown -R 1001:0 /backup.sh && chmod -R ug+rwx /backup.sh
+RUN chown -R 1001:0 /backup.sh && chmod -R a+rwx /backup.sh
 
 RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /usr/lib64/libpq.so.rh-postgresql94-5 
 RUN ln -s /opt/rh/rh-postgresql94/root/usr/lib64/libpq.so.rh-postgresql94-5  /usr/lib/libpq.so.rh-postgresql94-5
